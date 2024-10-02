@@ -39,7 +39,7 @@ struct ContentView: View {
             attachmentEntity.position.y = 0.45
             parentSimulationEntity.addChild(attachmentEntity)
             
-            let stringEntity = ModelEntity(mesh: .generateCylinder(height: 1.5, radius: 0.005), materials: [SimpleMaterial(color: pendulumSettings.stringColor, isMetallic: false)])
+            let stringEntity = makeStringEntity()
             attachmentEntity.addChild(stringEntity)
             
             let ballEntity = makeBallEntity()
@@ -92,6 +92,11 @@ struct ContentView: View {
         ballEntity.components.set([ballBody, ballCollision])
         
         return ballEntity
+    }
+    
+    func makeStringEntity() -> Entity {
+        let stringEntity = ModelEntity(mesh: .generateCylinder(height: pendulumSettings.stringLength, radius: pendulumSettings.stringRadius), materials: [SimpleMaterial(color: pendulumSettings.stringColor, isMetallic: false)])
+        return stringEntity
     }
 }
 

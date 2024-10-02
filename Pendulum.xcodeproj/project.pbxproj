@@ -14,6 +14,7 @@
 		2A86D0EA2CAD17F300349262 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A86D0E92CAD17F300349262 /* Assets.xcassets */; };
 		2A86D0ED2CAD17F300349262 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A86D0EC2CAD17F300349262 /* Preview Assets.xcassets */; };
 		2ABEB90D2CAD9F50001B5C7D /* PendulumSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEB90C2CAD9F50001B5C7D /* PendulumSettings.swift */; };
+		2ABEB90F2CADA617001B5C7D /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2ABEB90E2CADA617001B5C7D /* LICENSE.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2A86D0EC2CAD17F300349262 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2A86D0EE2CAD17F300349262 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ABEB90C2CAD9F50001B5C7D /* PendulumSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendulumSettings.swift; sourceTree = "<group>"; };
+		2ABEB90E2CADA617001B5C7D /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				2ABEB90C2CAD9F50001B5C7D /* PendulumSettings.swift */,
 				2A86D0E92CAD17F300349262 /* Assets.xcassets */,
 				2A86D0EE2CAD17F300349262 /* Info.plist */,
+				2ABEB90E2CADA617001B5C7D /* LICENSE.txt */,
 				2A86D0EB2CAD17F300349262 /* Preview Content */,
 			);
 			path = Pendulum;
@@ -148,6 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ABEB90F2CADA617001B5C7D /* LICENSE.txt in Resources */,
 				2A86D0ED2CAD17F300349262 /* Preview Assets.xcassets in Resources */,
 				2A86D0EA2CAD17F300349262 /* Assets.xcassets in Resources */,
 			);
