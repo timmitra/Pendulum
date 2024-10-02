@@ -35,7 +35,7 @@ struct PendulumSettings {
     let stringColor: Material.Color = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
 
     /// The size of the pendulum attachment.
-    let attachmentSize: SIMD3<Float> = [2.0, 0.5, 2.0]
+    let attachmentSize: SIMD3<Float> = [0.2, 0.025, 0.2]
     /// The color of the pendulum attachment.
     let attachmentColor: Material.Color = #colorLiteral(red: 0.75, green: 0.88, blue: 0.75, alpha: 1.0)
 

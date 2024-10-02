@@ -32,24 +32,24 @@ struct ContentView: View {
             floor.position.y = -0.5
             content.add(floor)
             
-            let parentSimulationEntity = ModelEntity()
-            content.add(parentSimulationEntity)
+            let pendulumParent = ModelEntity()
+            content.add(pendulumParent)
             
             let attachmentEntity = makeAttachmentEntity()
             attachmentEntity.position.y = 0.45
-            parentSimulationEntity.addChild(attachmentEntity)
+            pendulumParent.addChild(attachmentEntity)
             
             let stringEntity = makeStringEntity()
             attachmentEntity.addChild(stringEntity)
             
             let ballEntity = makeBallEntity()
-            ballEntity.position.y = -0.65
-            stringEntity.addChild(ballEntity)
+            //ballEntity.position.y = -0.65
+            pendulumParent.addChild(ballEntity)
            }
         }
     
     func makeAttachmentEntity() -> Entity {
-        let attachmentEntity = ModelEntity(mesh: .generateBox(width: 0.2, height: 0.025, depth: 0.2), materials: [SimpleMaterial(color: pendulumSettings.attachmentColor, isMetallic: false)])
+        let attachmentEntity = ModelEntity(mesh: .generateBox(size: pendulumSettings.attachmentSize), materials: [SimpleMaterial(color: pendulumSettings.attachmentColor, isMetallic: false)])
         
         let attachmentShape = ShapeResource.generateBox(
             size: pendulumSettings.attachmentSize * pendulumSettings.ballRadius
