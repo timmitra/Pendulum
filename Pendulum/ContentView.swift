@@ -16,26 +16,83 @@ import RealityKitContent
 struct ContentView: View {
     
     @State var ballEntity = Entity()
+    let pendulumSettings = PendulumSettings()
 
+    
     var body: some View {
         RealityView { content in
             
-            let attachmentEntity = ModelEntity(mesh: .generateBox(width: 0.2, height: 0.025, depth: 0.2), materials: [SimpleMaterial(color: .green, isMetallic: false)])
-            attachmentEntity.position.y = 0.45
-            content.add(attachmentEntity)
+            /* Occluded floor */
+            let floor = ModelEntity(mesh: .generatePlane(width: 100, depth: 100), materials: [OcclusionMaterial()])
+            floor.generateCollisionShapes(recursive: false)
+            floor.components[PhysicsBodyComponent.self] = .init(
+              massProperties: .default,
+              mode: .static
+            )
+            floor.position.y = -0.5
+            content.add(floor)
             
-            let stringEntity = ModelEntity(mesh: .generateCylinder(height: 1.5, radius: 0.005), materials: [SimpleMaterial(color: .gray, isMetallic: false)])
+            let parentSimulationEntity = ModelEntity()
+            content.add(parentSimulationEntity)
+            
+            let attachmentEntity = makeAttachmentEntity()
+            attachmentEntity.position.y = 0.45
+            parentSimulationEntity.addChild(attachmentEntity)
+            
+            let stringEntity = ModelEntity(mesh: .generateCylinder(height: 1.5, radius: 0.005), materials: [SimpleMaterial(color: pendulumSettings.stringColor, isMetallic: false)])
             attachmentEntity.addChild(stringEntity)
             
-            let ballEntity = ModelEntity(
-                mesh: .generateSphere(radius: 0.05),
-                materials: [SimpleMaterial(color: .white, isMetallic: true)])
-            ballEntity.position.y = -0.75
-            ballEntity.components.set(CollisionComponent(shapes: [.generateSphere(radius: 0.05)]))
+            let ballEntity = makeBallEntity()
+            ballEntity.position.y = -0.65
             stringEntity.addChild(ballEntity)
            }
-            
         }
+    
+    func makeAttachmentEntity() -> Entity {
+        let attachmentEntity = ModelEntity(mesh: .generateBox(width: 0.2, height: 0.025, depth: 0.2), materials: [SimpleMaterial(color: pendulumSettings.attachmentColor, isMetallic: false)])
+        
+        let attachmentShape = ShapeResource.generateBox(
+            size: pendulumSettings.attachmentSize * pendulumSettings.ballRadius
+        )
+
+        var attachmentBody = PhysicsBodyComponent(
+            shapes: [attachmentShape], mass: 1,
+            material: .generate(staticFriction: 0, dynamicFriction: 0, restitution: 1),
+            mode: .static
+        )
+        attachmentBody.linearDamping = 0
+        let attachmentCollision = CollisionComponent(shapes: [attachmentShape])
+
+        attachmentEntity.components.set([attachmentBody, attachmentCollision])
+        
+        return attachmentEntity
+    }
+    
+    func makeBallEntity() -> Entity {
+        
+        let ballEntity = ModelEntity(
+            mesh: .generateSphere(radius: pendulumSettings.ballRadius),
+            materials: [SimpleMaterial(color: .white, isMetallic: true)])
+        ballEntity.components.set(CollisionComponent(shapes: [.generateSphere(radius: pendulumSettings.ballRadius)]))
+        
+        let ballCollisionShape = ShapeResource.generateSphere(
+            radius: pendulumSettings.ballRadius)
+
+        var ballBody = PhysicsBodyComponent(
+            shapes: [ballCollisionShape],
+            mass: pendulumSettings.ballMass,
+            material: .generate(staticFriction: 0, dynamicFriction: 0, restitution: 1),
+            mode: .dynamic
+        )
+        ballBody.linearDamping = 0
+        
+        let ballShape = ballCollisionShape
+        let ballCollision = CollisionComponent(shapes: [ballShape])
+        
+        ballEntity.components.set([ballBody, ballCollision])
+        
+        return ballEntity
+    }
 }
 
 #Preview(windowStyle: .automatic) {

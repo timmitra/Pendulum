@@ -13,6 +13,7 @@
 		2A86D0E82CAD17F100349262 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A86D0E72CAD17F100349262 /* ImmersiveView.swift */; };
 		2A86D0EA2CAD17F300349262 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A86D0E92CAD17F300349262 /* Assets.xcassets */; };
 		2A86D0ED2CAD17F300349262 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A86D0EC2CAD17F300349262 /* Preview Assets.xcassets */; };
+		2ABEB90D2CAD9F50001B5C7D /* PendulumSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABEB90C2CAD9F50001B5C7D /* PendulumSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2A86D0E92CAD17F300349262 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A86D0EC2CAD17F300349262 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2A86D0EE2CAD17F300349262 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ABEB90C2CAD9F50001B5C7D /* PendulumSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendulumSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				2A86D0E32CAD17F100349262 /* PendulumApp.swift */,
 				2A86D0E52CAD17F100349262 /* ContentView.swift */,
 				2A86D0E72CAD17F100349262 /* ImmersiveView.swift */,
+				2ABEB90C2CAD9F50001B5C7D /* PendulumSettings.swift */,
 				2A86D0E92CAD17F300349262 /* Assets.xcassets */,
 				2A86D0EE2CAD17F300349262 /* Info.plist */,
 				2A86D0EB2CAD17F300349262 /* Preview Content */,
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ABEB90D2CAD9F50001B5C7D /* PendulumSettings.swift in Sources */,
 				2A86D0E62CAD17F100349262 /* ContentView.swift in Sources */,
 				2A86D0E42CAD17F100349262 /* PendulumApp.swift in Sources */,
 				2A86D0E82CAD17F100349262 /* ImmersiveView.swift in Sources */,
