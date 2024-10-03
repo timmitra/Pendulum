@@ -26,9 +26,9 @@ struct PendulumSettings {
     /// The radius of the ball in the pendulum.
     let ballRadius: Float = 0.04
     /// The mass of the ball in the pendulum.
-    let ballMass: Float = 2
+    let ballMass: Float = 20
     /// The length of the pendulum string.
-    let stringLength: Float = 1.0
+    let stringLength: Float = 0.65
     /// The radius of the pendulum string.
     let stringRadius: Float = 0.001
     /// The color of the pendulum string.
